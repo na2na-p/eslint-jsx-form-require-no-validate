@@ -1,4 +1,5 @@
 import { TSESLint } from "@typescript-eslint/experimental-utils";
+// HACK: 型定義が提供されていないため。
 // @ts-ignore
 import { hasProp } from 'jsx-ast-utils';
 
@@ -16,13 +17,13 @@ const noValidate: TSESLint.RuleModule<"noValidate", []> = {
     return {
       JSXOpeningElement(node) {
 				const noValidate = hasProp(node.attributes, 'noValidate');
+				if (!(node.name.type === 'JSXIdentifier')) return;
         if (
-					// @ts-ignore
           node.name.name === 'form' &&
           !noValidate
         ) {
           context.report({
-            node,
+						node,
             fix(fixer) {
               return fixer.insertTextAfter(
                 node.attributes[node.attributes.length - 1],
