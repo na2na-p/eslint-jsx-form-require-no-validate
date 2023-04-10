@@ -1,6 +1,6 @@
 declare module "jsx-ast-utils" {
 	function hasProp(
-		props: any[],
+		props: ReadonlyArray<any>,
 		prop: string,
 		options?: {
 			spreadStrict: boolean;
