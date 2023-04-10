@@ -3,12 +3,11 @@ import { TSESLint } from "@typescript-eslint/experimental-utils";
 // @ts-ignore
 import { hasProp } from 'jsx-ast-utils';
 
-const noValidate: TSESLint.RuleModule<"noValidate", []> = {
+export const noValidate: TSESLint.RuleModule<"noValidate", []> = {
   meta: {
-		
     type: "suggestion",
     messages: {
-      noValidate: "{{ message }}",
+			noValidate: 'Form element must have a noValidate attribute',
     },
     schema: [],
 		fixable: 'code',
@@ -30,8 +29,7 @@ const noValidate: TSESLint.RuleModule<"noValidate", []> = {
                 ' noValidate'
               );
             },
-						// @ts-ignore
-            message: 'Form element must have a noValidate attribute',
+						messageId: 'noValidate',
           });
         }
       },
@@ -40,5 +38,3 @@ const noValidate: TSESLint.RuleModule<"noValidate", []> = {
 };
 
 module.exports = noValidate;
-
-export default noValidate;
