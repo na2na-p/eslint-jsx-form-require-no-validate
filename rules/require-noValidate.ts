@@ -1,6 +1,4 @@
 import { TSESLint } from "@typescript-eslint/experimental-utils";
-// HACK: 型定義が提供されていないため。
-// @ts-ignore
 import { hasProp } from 'jsx-ast-utils';
 
 export const noValidate: TSESLint.RuleModule<"noValidate", []> = {
